@@ -20,6 +20,12 @@ void main() {
     final fontLoader2 = FontLoader('Roboto');
     fontLoader2.addFont(Future.value(ByteData.view(fontData2.buffer)));
     await fontLoader2.load();
+
+    final fontFile3 = File('test/fonts/NotoSans-Regular.ttf');
+    final fontData3 = await fontFile3.readAsBytes();
+    final fontLoader3 = FontLoader('NotoSans');
+    fontLoader3.addFont(Future.value(ByteData.view(fontData3.buffer)));
+    await fontLoader3.load();
   });
 
   testWidgets('App is rendered', (tester) async {
