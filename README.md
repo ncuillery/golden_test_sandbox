@@ -1,16 +1,21 @@
 # golden_test_sandbox
 
-A new Flutter project.
+## Description
 
-## Getting Started
+This repo shows an issue with golden tests not rendering Japanese characters.
 
-This project is a starting point for a Flutter application.
+See [golden_test.dart](https://github.com/ncuillery/golden_test_sandbox/blob/master/test/golden_test.dart):
 
-A few resources to get you started if this is your first Flutter project:
+Both MaterialIcons and Roboto fonts are loaded and the characters are correctly rendering in the golden image. Unfortunately japanese characters aren't (they are in the app):
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![](https://raw.githubusercontent.com/ncuillery/golden_test_sandbox/master/test/home_page.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+As an attempt, I tried to load Noto Sans (font used to render japanese characters on Android) but it has no effect.
+
+## Usage
+
+To run the golden test locally:
+
+- Clone the repo
+- Run `flutter pub get`
+- Run `flutter test --update-goldens test/golden_test.dart`
